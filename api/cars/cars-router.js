@@ -12,11 +12,14 @@ router.get("/", async (req, res, next) => {
         next(e)
     }
 })
-
-router.get("/:id", (req, res, next) => {
-    res.json("check")
+router.get("/:id", async (req, res, next) => {
+    try {
+        const car = await Car.getById(req.params.id)
+        res.json(car)
+    } catch (e) {
+        next(e)
+    }
 })
-
 router.post("/", (req, res, next) => {
     res.json("check")
 })
