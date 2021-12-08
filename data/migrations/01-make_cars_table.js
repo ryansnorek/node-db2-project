@@ -3,18 +3,18 @@ exports.up = function(knex) {
     // creates a column for primary id. default label is "id"
     table.increments()
     
-    table.string("vin", 20).notNullable().unique()
-
     table.string("make", 100).notNullable()
-
+    
+    table.integer("mileage").notNullable()
+    
     table.string("model", 100).notNullable()
-
-    table.integer("milage").unsigned().notNullable()
-
+    
     table.string("title", 100)
     // .defaultTo("clean")
-
+    
     table.string("transmission", 100)
+    
+    table.string("vin", 20).notNullable().unique()
   })
 };
 // To make changes you either delete the DB and re run migrations
