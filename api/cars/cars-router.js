@@ -28,7 +28,7 @@ router.post("/",
     checkVinNumberUnique,
     async (req, res, next) => {
         try {
-            const car = await Car.getAll()
+            const car = await Car.create(req.body)
             res.json(car)
         } catch (e) {
             next(e)
